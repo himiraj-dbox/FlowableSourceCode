@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+	<title>Title</title>
+
+<script name="jquery/jquery.js" library="primefaces"></script>
+<style>
+
+</style>
+</h:head>
+<h:body>
+<h:outputScript library="primefaces" name="jquery/jquery.js" />
+	<h:outputStylesheet name="css/style.css"  />
+	<h:outputScript name="javascript/common.js"/>
+	<h:form>
+	<p:growl id="growl" life="2000" />
+	<p:dialog header="HireMeTenseFree.com" widgetVar="dlg3" showEffect="explode" resizable="false"  height="240" modal="true">
+	<p:messages autoUpdate="true" />
+	<p:panelGrid columns="2">
+	<p:outputLabel value="Full Name*"/>
+	
+	<p:inputText id="name" required="true" label="Name"  requiredMessage="Name is Mendatory field" value="#{hiremetensefree.customerName}"/>
+	 
+	 
+	<p:outputLabel value="Phone Number*"/>
+	<p:inputMask  mask="(999) 999-9999" id="number" requiredMessage="Mobile number is mendatory Field" validatorMessage="Mobile number is incorrect, Please check again" label="Number" value="#{hiremetensefree.customerMobileNumber}" required="true">
+	
+	</p:inputMask>
+	<p:outputLabel value="Email Id"/>
+	<p:inputText value="#{hiremetensefree.customerEmailId}"/>
+	<p:outputLabel value="Locatily"/>
+	<p:inputText value="#{hiremetensefree.locality}"/>
+	<p:outputLabel value="Work Description (basic)"/>
+	<p:inputText value="#{hiremetensefree.workDescription}"/>
+	</p:panelGrid>
+	<p:panelGrid columns="2">
+	<p:commandButton  onclick="PF('dlg3').hide();return false;" style="float:left"  value="Close"></p:commandButton>
+	<p:commandButton  style="float:right" update="growl" actionListener="#{hiremetensefree.onClickSubmit}" value="Submit"></p:commandButton>
+    </p:panelGrid>
+</p:dialog>
+</h:form >
+
+	<p:layout fullPage="true"  style="width:100%">
+		
+		<!-- <p:layoutUnit position="east"  size="90"  styleClass="noBorder"
+			resizable="false" closable="false" collapsible="false">
+			
+		</p:layoutUnit> -->
+	<!--  <p:layoutUnit position="north" style="width:100%"  size="140"   styleClass="noBorder noScrollPrimefces"
+			resizable="false" closable="false" collapsible="false" >
+			<h:form>
+			
+		<p:graphicImage onclick="PF('dlg3').show()" style="margin-left:100" 
+						value="image/hiremetensefree.jpg" height="100"
+						width="90%"></p:graphicImage>
+						
+	
+
+			</h:form>
+		</p:layoutUnit> -->
+		
+<!-- 
+		<p:layoutUnit position="west" size="6%"  styleClass="noBorder"
+			resizable="false" closable="false" collapsible="false">
+			
+		</p:layoutUnit> -->
+		<p:layoutUnit position="south" size="1%"  styleClass="noBorder"
+			resizable="false" closable="false" collapsible="false">
+			
+		</p:layoutUnit>
+
+
+		<p:layoutUnit style="width:100%;height:89%" position="center"  styleClass="noBorder ui-fluid">
+			<ui:insert name="content">Put default content here, if any.</ui:insert>
+		</p:layoutUnit>
+	</p:layout>
+</h:body>
+</html>

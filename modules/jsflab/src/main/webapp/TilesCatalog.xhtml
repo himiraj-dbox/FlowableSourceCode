@@ -1,0 +1,50 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	template="template/tileTemplate.xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:composite="http://java.sun.com/jsf/composite/components"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+	<ui:define name="content">
+		<h:form id="hireMeTenseFreeMainPage">
+		
+	
+		<div style="z-index: 99;position: fixed;margin-top: -120;">
+		<p:graphicImage onmouseover="changeImageOver();"  id="navigation" onclick="PF('dlg3').show()" style="margin-left:100;opacity: 0.5;background-color: #eceadf;" 
+						value="image/hiremetensefree.jpg" height="100"
+						width="90%"></p:graphicImage>
+						</div>
+		<div style="margin-top: 120;z-index: 99;">
+		<table width="100%">
+		<tr>
+		
+		<!-- <h:panelGrid columns="2">
+		<p:graphicImage style="margin-left:100"
+						value="image/hiremetensefree.jpg" height="70"
+						width="40%"></p:graphicImage>
+					
+						
+						
+						</h:panelGrid> -->
+		</tr>
+		<tr>
+		<td width="6%">
+   
+   </td>
+		<td width="88%">
+		
+		Our content areaA
+			
+   </td>
+   <td width="6%">
+   
+   </td>
+   </tr>
+   </table>
+   </div>
+		</h:form>
+	</ui:define>
+</ui:composition>
+

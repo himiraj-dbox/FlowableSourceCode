@@ -1,0 +1,136 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	template="template/ui.xhtml">
+
+	<ui:define name="body">
+		<script>
+			function myFunction() {
+				var x = document.getElementsByClassName("abcd");
+				x[0].innerHTML = "Hello World!";
+			}
+		</script>
+
+		<p:panel>
+
+
+
+		</p:panel>
+
+		<p:panel>
+			<ui:include src="/biidingHeader.xhtml"></ui:include>
+		</p:panel>
+		<h:form enctype="multipart/form-data">
+		<p:panelGrid id="panelGrid5" columns="7" style="margin-left:150px; height: 66px; " cellpadding="0" cellspacing="0"> 
+
+<p:commandButton id="commandButton1" action="actualBidding" value="Home" style="widtp: 106px; height: 60px; "></p:commandButton>
+<p:commandButton id="commandButton2" action="aboutUs" value="About Us" style="widtp: 104px; height: 60px; "></p:commandButton>
+<p:commandButton id="commandButton3" action="systemIntegration" disabled="true" value="System Integration" style="height: 58px; "></p:commandButton>
+<p:commandButton id="commandButton4" action="biddinghome" value="Biddingss" style='height: 55px; font-variant: normal; font-family: "Times New Roman", Serif; font-style: oblique'/>
+<p:commandButton id="commandButton5" action="greenWaste" disabled="true" value="Green Waste " style="height: 55px; "></p:commandButton>
+<p:commandButton id="commandButton6" action="joinUS" disabled="true" value="Join Us" style="height: 52px; "></p:commandButton>
+<p:commandButton id="commandButton7" action="contctUs"  value="Contact Us" style="height: 49px; "></p:commandButton>
+  
+
+</p:panelGrid>
+			<p:panel>
+				<p:panelGrid columns="2">
+					<p:outputLabel
+						value="Enter Bid Reference Number*(Should Be Unique)" />
+					<h:inputText  value="#{biddinginsertion.bidReferceNo}" >
+					 <f:validator validatorId="bidreferencevalidator" />
+					 <p:ajax event="change" update="@all"/>
+					</h:inputText>
+					<p:outputLabel value="Product Name" />
+					<p:inputText styleClass="abcd"
+						value="#{biddinginsertion.productName}"></p:inputText>
+					<p:outputLabel value="Product ID" />
+					<p:inputText styleClass="abcd"
+						value="#{biddinginsertion.productId}"></p:inputText>
+					<p:outputLabel value="Want" />
+					  <p:selectOneMenu  value="#{biddinginsertion.status}" style="width:125px">
+            <f:selectItem itemLabel="Select One" itemValue="" />
+            <f:selectItem itemLabel="Want to buy" itemValue="Want to buy" />
+            <f:selectItem itemLabel="Want to Sell" itemValue="Want to Sell" />
+            <f:selectItem itemLabel="Want to exchange" itemValue="Want to exchange" />
+             <f:selectItem itemLabel="Want to Donate" itemValue="Want to Donate" />
+        </p:selectOneMenu>
+					
+					<p:outputLabel value="Condition" />
+					<p:selectOneMenu  value="#{biddinginsertion.condition}" style="width:125px">
+            <f:selectItem itemLabel="Select One" itemValue="" />
+            <f:selectItem itemLabel="New" itemValue="New" />
+            <f:selectItem itemLabel="Old/Unused" itemValue="Old/Unused" />
+            <f:selectItem itemLabel="Used" itemValue="Used" />
+             <f:selectItem itemLabel="Refurbished" itemValue="Refurbished" />
+              <f:selectItem itemLabel="Non Working" itemValue="Non Working" />
+        </p:selectOneMenu>
+        	<p:outputLabel value="Posted By" />
+					<p:selectOneMenu  value="#{biddinginsertion.condition}" style="width:125px">
+            <f:selectItem itemLabel="Select One" itemValue="" />
+            <f:selectItem itemLabel="OEM/Manufacturer" itemValue="OEM/Manufacturer" />
+            <f:selectItem itemLabel="Destributor" itemValue="Destributor" />
+            <f:selectItem itemLabel="Dealer/Reseller" itemValue="Dealer/Reseller" />
+             <f:selectItem itemLabel="Service Centre" itemValue="Service Centre" />
+              <f:selectItem itemLabel="System Integrator" itemValue="System Integrator" />
+              <f:selectItem itemLabel="Free Lancer" itemValue="Free Lancer" />
+               <f:selectItem itemLabel="Broker" itemValue="Broker" />
+               <f:selectItem itemLabel="Recycler" itemValue="Recycler" />
+                <f:selectItem itemLabel="Corporates" itemValue="Corporates" />
+        </p:selectOneMenu>
+					<p:outputLabel value="Item" />
+					<p:inputText value="#{biddinginsertion.itemName}"></p:inputText>
+
+					<p:outputLabel value="Manufacturer Name" />
+					<p:inputText value="#{biddinginsertion.manufacturerName}"></p:inputText>
+					<p:outputLabel value="Warrant" />
+					<p:selectOneMenu  value="#{biddinginsertion.warranty}" style="width:125px">
+            <f:selectItem itemLabel="Select One" itemValue="" />
+            <f:selectItem itemLabel="Yes" itemValue="New" />
+            <f:selectItem itemLabel="No" itemValue="Old/Unused" />
+             <f:selectItem itemLabel="Dealer Warranty" itemValue="Old/Unused" />
+        </p:selectOneMenu>
+					
+					<p:outputLabel value="Item Description" />
+					<p:inputText value="#{biddinginsertion.itemDexcription}"></p:inputText>
+					<p:outputLabel value="Location" />
+					<p:inputText value="#{biddinginsertion.location}"></p:inputText>
+					<p:outputLabel value="Start Date" />
+					<p:calendar value="#{biddinginsertion.startingDate}"
+						showOn="button"></p:calendar>
+					<p:outputLabel value="End date" />
+					<p:calendar value="#{biddinginsertion.endDate}" showOn="button"></p:calendar>
+					<p:outputLabel
+						value="Start Time of Bid" />
+					<p:inputText value="#{biddinginsertion.timeStarted}" ></p:inputText>
+					<p:outputLabel value="End Time of Bid " />
+					<p:inputText value="#{biddinginsertion.timeEnd}"></p:inputText>
+					
+				</p:panelGrid>
+				<p:panel>
+					<p:fileUpload id="MultiplefileUploadEvent"
+						value="#{biddinginsertion.file}" mode="simple"
+						allowTypes="/(\.|\/)(gif|jpe?g|png)$/" sizeLimit="1000000000"
+						description="Select Images">
+					</p:fileUpload>
+					<h:commandButton value="upload" action="#{biddinginsertion.upload}" />
+				</p:panel>
+				<h:commandButton value="Submit"
+					action="#{biddinginsertion.submitBidding}" />
+			</p:panel>
+			<h:commandButton value="refresh the image">
+
+				<f:ajax event="click" render="@all" />
+			</h:commandButton>
+
+		<p:galleria value="#{biddinginsertion.galleryImagesPath}" var="image"
+			panelWidth="500" panelHeight="313" showCaption="true">
+			<p:graphicImage value="image/#{image}" height="300em"></p:graphicImage>
+		</p:galleria>
+				</h:form>
+	</ui:define>
+</ui:composition>

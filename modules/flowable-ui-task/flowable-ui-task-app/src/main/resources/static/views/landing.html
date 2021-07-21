@@ -1,0 +1,10 @@
+<div class="sidenav">
+<label class ="landingPageContentSidebarColor">Process</label>
+<div id={{app.id}} class="app-wrapper" ng-repeat="app in model.apps">
+<a href={{app.fixedUrl}}> <i class="{{app.icon}}"></i>{{app.titleKey && (app.titleKey | translate) || app.name}}</a>
+</div>
+ 
+</div>
+<div class="main">
+<iframe src="http://localhost:8080/birt/" style="min-width: 1600px; margin-left: -200px; min-height: 1000px;"></iframe> 
+</div>

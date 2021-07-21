@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14360959711811" configfile="/jsflab/src/main/webapp/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="biddingHome.xhtml" x="338" y="1714" id="pf145173770065230" referenceLink="//@navigationRule.10/@fromViewId|" outlinks="pf14750025913390 pf14750025913391 pf14750025913392" inlinks="pf14750025913393 pf14750025913394 pf14750025913395" path="/biddingHome.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="ActualBiddingHome.xhtml" x="554" y="1714" id="pf145174066320533" referenceLink="//@navigationRule.11/@fromViewId|" outlinks="pf14750025913395 pf14750025913406" inlinks="pf14750025913391 pf14750025913392" path="ActualBiddingHome.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="biidingHeader.xhtml" x="122" y="562" id="pf145174192174036" referenceLink="//@navigationRule.1/@fromViewId|" path="/biidin>"/>
+  <nodes xsi:type="pageflow:PFPage" name="signup.xhtml" x="122" y="178" id="pf14522838324486" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf14750025913417" path="/signup.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="home.xhtml" x="338" y="178" id="pf14522838324488" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf14750025913417" path="/home.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="adminpage.xhtml" x="122" y="946" id="pf14522838324489" referenceLink="//@navigationRule.5/@fromViewId|" outlinks="pf14750025913418 pf14750025913419 pf147500259134110" path="/adminpage.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="BiddingInsertion.xhtml" x="338" y="562" id="pf145228383244813" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf14750025913418" path="/BiddingInsertion.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="biddingKeeper.xhtml" x="338" y="946" id="pf145228383244814" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" inlinks="pf14750025913419" path="/biddingKeeper.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="biddingRoom.xhtml" x="554" y="2098" id="pf145228383244815" referenceLink="//@navigationRule.4/@fromViewId|" outlinks="pf14750025913393" inlinks="pf14750025913390" path="/biddingRoom.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="verifyAnUser.xhtml" x="338" y="1330" id="pf145228383244816" referenceLink="//@navigationRule.5/@navigationCase.0/@toViewId|" inlinks="pf147500259134110" path="/verifyAnUser.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="ActualBiddingHome.xhtml" x="122" y="1714" id="pf145228383244819" referenceLink="//@navigationRule.8/@navigationCase.0/@toViewId|" outlinks="pf14750025913394 pf147500259134211" inlinks="pf147500259134211" path="/ActualBiddingHome.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="ContactUs.xhtml" x="770" y="1714" id="pf145228383244821" referenceLink="//@navigationRule.11/@navigationCase.0/@toViewId|" inlinks="pf14750025913406" path="ContactUs.xhtml"/>
+  <links id="pf14750025913417" target="pf14522838324488" source="pf14522838324486" outcome="home"/>
+  <links id="pf14750025913418" target="pf145228383244813" source="pf14522838324489" outcome="addBid"/>
+  <links id="pf14750025913419" target="pf145228383244814" source="pf14522838324489" outcome="bidkeeper"/>
+  <links id="pf14750025913390" target="pf145228383244815" source="pf145173770065230" outcome="biddingRoom"/>
+  <links id="pf14750025913393" target="pf145173770065230" source="pf145228383244815" outcome="biddingHome"/>
+  <links id="pf147500259134110" target="pf145228383244816" source="pf14522838324489" outcome="verifyUser"/>
+  <links id="pf14750025913394" target="pf145173770065230" source="pf145228383244819"/>
+  <links id="pf14750025913395" target="pf145173770065230" source="pf145174066320533" outcome="biddinghome"/>
+  <links id="pf14750025913391" target="pf145174066320533" source="pf145173770065230" outcome="actualBidding"/>
+  <links id="pf14750025913392" target="pf145174066320533" source="pf145173770065230"/>
+  <links id="pf14750025913406" target="pf145228383244821" source="pf145174066320533" outcome="contctUs"/>
+  <links id="pf147500259134211" target="pf145228383244819" source="pf145228383244819" outcome="goToHome">
+    <bendPoints d1Height="-36" d2Height="-36"/>
+    <bendPoints d1Width="-64" d1Height="-36" d2Width="-64" d2Height="-36"/>
+    <bendPoints d1Width="-64" d2Width="-64"/>
+  </links>
+</pageflow:Pageflow>

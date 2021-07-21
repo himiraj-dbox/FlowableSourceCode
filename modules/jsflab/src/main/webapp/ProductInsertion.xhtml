@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	template="template/ui.xhtml">
+
+	<ui:define name="body">
+
+		<p:panel>
+
+
+
+		</p:panel>
+
+		<p:panel>
+			<ui:include src="/biidingHeader.xhtml"></ui:include>
+		</p:panel>
+		<h:form id="productInsertion">
+			<p:growl id="growl" life="2000" />
+			<h:panelGroup id="global_flag_validation_failed_render">
+				<h:outputText id="global_flag_validation_failed" value="true"
+					rendered="#{facesContext.validationFailed}" />
+			</h:panelGroup>
+			<p:panel>
+				<p:fileUpload id="fileUploadEvent" fileUploadListener="#{productinsertions.upload}"
+					allowTypes="/(\.|\/)(gif|jpe?g|png)$/" sizeLimit="1000000000"
+					description="Select Images">
+
+				</p:fileUpload>
+				<h:commandButton value="refresh the image">
+				
+				<f:ajax event="click" render="@all" />
+			</h:commandButton>
+			</p:panel>
+			<p:panel>
+
+				<p:panelGrid columns="3">
+					<p:graphicImage id="productImage"
+						value="#{productinsertions.imagenameFileType}" height="300em"
+						width="200em"></p:graphicImage>
+					<p:panelGrid columns="2" style="width:28em">
+						<p:outputLabel value="Product Id"></p:outputLabel>
+						<p:inputText value="#{productinsertions.productId}">
+							<f:ajax render="@all"></f:ajax>
+						</p:inputText>
+						<p:outputLabel value="Manufacturer Id"></p:outputLabel>
+						<p:inputText value="#{productinsertions.productManufacturerId}" />
+						<p:outputLabel value="Manufacturer Name"></p:outputLabel>
+						<p:inputText value="#{productinsertions.productmanufacturerName}" />
+
+
+					</p:panelGrid>
+					<p:graphicImage height="300em" width="200em"></p:graphicImage>
+				</p:panelGrid>
+			</p:panel>
+			<p:panel>
+				<p:panel>
+					<p:outputLabel value="Basic Information" style="font-size:x-laege"></p:outputLabel>
+
+					<p:dataTable value="#{productinsertions.basicInformationList}"
+						var="bacicInformation">
+						<p:column headerText="Name">
+							<p:inputText value="#{bacicInformation.key}" />
+						</p:column>
+						<p:column headerText="Value">
+							<p:inputText value="#{bacicInformation.value}" />
+						</p:column>
+					</p:dataTable>
+					<h:commandButton value="Add More Details"
+						action="#{productinsertions.addBasicInformation}" />
+				</p:panel>
+				<p:panelGrid columns="2">
+					<p:outputLabel value="Output Description"></p:outputLabel>
+					<p:inputTextarea value="#{productinsertions.productDetail}"></p:inputTextarea>
+				</p:panelGrid>
+				<p:panel>
+					<p:outputLabel value="Detail Overview"></p:outputLabel>
+					<p:dataTable value="#{productinsertions.detailDescriptionList}"
+						var="detailOverview">
+						<p:column headerText="Name">
+							<p:inputText value="#{detailOverview.key}" />
+						</p:column>
+						<p:column headerText="Value">
+							<p:inputText value="#{detailOverview.value}" />
+						</p:column>
+					</p:dataTable>
+					<h:commandButton value="Add Detail Overview"
+						update="productInsertion"
+						action="#{productinsertions.addDetailDescription}" />
+				</p:panel>
+				<p:outputLabel value="need To implement Variant Id"></p:outputLabel>
+				<p:panel>
+
+					<p:dataTable value="#{productinsertions.keywordsList}"
+						var="keyword">
+						<p:column headerText="Keywords">
+							<p:inputText value="#{keyword.stringVariable}" />
+						</p:column>
+
+					</p:dataTable>
+					<h:commandButton value="Add Keywords"
+						action="#{productinsertions.addKeywords}" />
+				</p:panel>
+				<p:outputLabel value="Hierarchy need to implement"></p:outputLabel>
+				<p:outputLabel value="Do remember to implement ratings"></p:outputLabel>
+				<p:panelGrid columns="2">
+					<p:outputLabel value="price"></p:outputLabel>
+					<p:inputText value="#{productinsertions.price}"></p:inputText>
+				</p:panelGrid>
+			</p:panel>
+			<br />
+			<br />
+			<h:commandButton value="SUBMIT VALUES"
+				action="#{productinsertions.onClickSubmit}" />
+		</h:form>
+	</ui:define>
+</ui:composition>

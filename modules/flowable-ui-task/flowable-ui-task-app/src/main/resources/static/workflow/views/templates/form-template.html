@@ -1,0 +1,82 @@
+<div ng-controller="RenderFormController" id="formsection">
+
+    <div loading="model.loading"></div>
+
+    <div ng-if="!model.loading && formData != null && formData != undefined && (disableForm == null || disableForm == undefined || disableForm == false)"
+         class="form-wrapper container-fluid">
+
+        <div ng-if="!outcomesOnly" >
+            <div ng-form="taskForm">
+                <div class="split-left" style="width:40%;border-right: 2px black solid;">
+                  
+                        <div ng-repeat="field in formData.fields" id="fieldContainer_{{field.id}}" ng-click="higlightOCRImageOnthebasisofTag();">
+                             <div>
+                            <form-element  field="field" task-form="taskForm" control-callbacks="controlCallbacks" model="model"></form-element>
+                          </div>
+                        </div>
+                        
+                        <div ng-if="!formData.outcomes || formData.outcomes.length === 0" class="clearfix form-actions">
+            <div class="pull-right" ng-if="(hideButtons == undefined || hideButtons == null || hideButtons == false) && (disableForm == undefined || disableForm == null || disableForm == false)">
+                <button id="form_save_button" class="btn btn-default" ng-disabled="model.completeButtonDisabled || !model.valid || (disableOutcomes != undefined && disableOutcomes != null && disableOutcomes) || model.uploadInProgress"
+                        ng-click="saveForm()" ng-show="!processDefinitionId && !caseDefinitionId" translate="FORM.ACTION.SAVE"></button>
+                <button id="form_complete_button" class="btn btn-default" ng-disabled="model.completeButtonDisabled || !model.valid || (disableOutcomes != undefined && disableOutcomes != null && disableOutcomes) || model.uploadInProgress"
+                        ng-click="completeForm('complete')">{{getDefaultCompleteButtonText()}}</button>
+            </div>
+        </div>
+
+        <div ng-if="formData.outcomes && formData.outcomes.length > 0" class="clearfix form-actions">
+            <div class="pull-right" ng-if="(hideButtons == undefined || hideButtons == null || hideButtons == false) && (disableForm == undefined || disableForm == null || disableForm == false)">
+                <button id="form_save_button" class="btn btn-default"
+                        ng-disabled="!model.valid || model.completeButtonDisabled || model.uploadInProgress"
+                        ng-click="saveForm()" ng-show="!processDefinitionId && !caseDefinitionId" translate="FORM.ACTION.SAVE"></button>
+                <button id="form_complete_button" class="btn btn-default"
+                        ng-disabled="!model.valid || model.completeButtonDisabled || model.uploadInProgress"
+                        ng-repeat="outcome in formData.outcomes"
+                        ng-click="completeForm(outcome)">{{outcome.name}}</button>
+            </div>
+        </div>
+
+        <div ng-if="formData.selectedOutcome && formData.selectedOutcome.length > 0" class="clearfix form-actions">
+        	<div class="pull-right">
+                <button id="form_complete_button" class="btn btn-default" ng-disabled="true">{{formData.selectedOutcome}}</button>
+            </div>
+        </div>
+</div>
+<div ng-if="pdfUrlDynamic != null || pdfUrlDynamic" class="split-right" style="width:60%">
+      <button id="nextbutton" ng-click="onclicknextbutton()" type="button">next page</button>
+      <button id="prevbutton"  ng-click="onclickprevbutton()" type="button">prev page</button>
+      <button id="zoominbutton" ng-click="onclickzoominbutton()" type="button">zoom in</button>
+      <button id="zoomoutbutton" ng-click="onclickzoomoutbutton()" type="button">zoom out</button>
+      <div ng-hide="true">
+      <br>
+      	<div id='log'></div>
+	<div id='demo-instructions'>
+						<span id='clickme' >Click here to recognize text in the demo image</span>, or drop <span class='drop-instructions'>an English</span> image anywhere on this page.
+					</div>
+      <div id='log'></div>
+      </div>
+      <canvas id="input-overlay" style="border:1px  solid black"></canvas>
+      <img id='input' src=""/>
+</div>
+</div>
+
+        
+
+    </div>
+
+
+    <div ng-if="disableForm != null && disableForm != undefined && disableForm == true">
+        <div ng-if="disableFormText" class="text-center">
+            <div class="help-container fixed">
+                <div>
+                    <div class="help-text">
+                        <div class="description">
+                            {{disableFormText | translate}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

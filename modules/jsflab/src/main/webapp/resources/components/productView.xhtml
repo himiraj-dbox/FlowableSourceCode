@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:p="http://primefaces.org/ui"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:composite="http://java.sun.com/jsf/composite">
+   <composite:interface>
+ <composite:attribute name="bean" />
+   </composite:interface>
+   <composite:implementation>
+  <p:panel   style="text-align:center;    border:0">
+		<p:outputLabel value="#{cc.attrs.bean.productName}"/>
+		</p:panel>
+		
+		<p:panelGrid columns="2" style="margin-left:65">
+		<p:panel>
+		<p:panelGrid columns="2" style="margin-left:65">
+		<p:panel   style="text-align:center;width:200;    border:0">
+		<p:outputLabel style="float:left" value="Product id"/>
+		</p:panel>
+		<p:panel   style="text-align:center;width:200;    border:0">
+		<p:outputLabel style="float:left" value="#{cc.attrs.bean.productID}"/>
+		</p:panel>
+		
+		<p:panel   style="text-align:center;width:200;    border:0">
+		<p:outputLabel style="float:left" value="Manufacturer Name"/>
+		</p:panel>
+		<p:panel   style="text-align:center;width:200;    border:0">
+		<p:outputLabel style="float:left" value="#{cc.attrs.bean.manufacturerName}"/>
+		</p:panel>
+		
+		
+		
+		<p:panel   style="text-align:center;width:200;    border:0">
+		<p:outputLabel style="float:left" value="Condition"/>
+		</p:panel>
+		<p:panel   style="text-align:center;width:200;    border:0">
+		<p:outputLabel style="float:left" value="#{cc.attrs.bean.productID}"/>
+		</p:panel>
+		
+		
+		<p:panel   style="text-align:center;width:200;    border:0">
+		<p:outputLabel style="float:left" value="Warranty"/>
+		</p:panel>
+		<p:panel   style="text-align:center;width:200;    border:0">
+		<p:outputLabel style="float:left" value="#{cc.attrs.bean.warranty}"/>
+		</p:panel>
+		
+		</p:panelGrid>
+		</p:panel>
+		<p:outputPanel  id="containmentPanel" layout="block" style="width:30em;height:8em;border:0px solid black;">
+    <p:panel id="containment" header="Product Description" style="margin:0" >
+       #{cc.attrs.bean.itemDexcription}
+    </p:panel>
+    <p:resizable for="containment" containment="true"/>
+</p:outputPanel>
+		</p:panelGrid>
+		<p:galleria value="#{cc.attrs.bean.imageForCrousel}" var="image" 
+			panelWidth="820" panelHeight="313" showCaption="true">
+			<p:graphicImage value="image/#{image}" height="300em" width="810em"></p:graphicImage>
+		</p:galleria>
+   </composite:implementation>
+</html>

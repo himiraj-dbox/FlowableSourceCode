@@ -1,0 +1,51 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition 
+ template="template/template.xhtml"
+  xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:composite="http://java.sun.com/jsf/composite/components"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	>
+
+	
+		<style>
+		.overriddingpanelGrid .ui-panelgrid .ui-panelgrid-cell {
+		    border-width: 0px !important;
+    border-style: solid;
+    border-color: inherit;
+    padding: 0px 0px !important;
+		}
+		.actualBiddingHeader{
+		       font-size: 2em !important;
+		}
+		.actualBiddingsubHeader{
+		           font-size: 1.5em !important;
+		           text-align: justify !important;;
+    text-justify: inter-word !important;;
+
+		}
+		.companyHeaderGrid.ui-panelgrid>*>tr,
+.companyHeaderGrid.ui-panelgrid .ui-panelgrid-cell {
+    border: none;
+}
+	</style>
+		<script>
+			function myFunction() {
+				var x = document.getElementsByClassName("abcd");
+				x[0].innerHTML = "Hello World!";
+			}
+		</script>
+
+<p:panel>
+	<p:graphicImage  height="100%"
+						width="100%;background-color: #0C9D40;" id="panelImage"
+						styleClass="widthOfBiddingHeader4 noBordrPanel2 noBorderPanel"
+						value="/resources/images/Contact_us_Details.png"></p:graphicImage>
+
+</p:panel>
+
+	
+</ui:composition>

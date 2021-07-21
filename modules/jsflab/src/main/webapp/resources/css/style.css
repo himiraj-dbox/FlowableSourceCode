@@ -1,0 +1,58 @@
+
+
+
+.noBorder{
+border: 0px solid #dddddd;
+
+}
+
+.width195{
+width: 195;
+}
+
+.ui-widget-content {
+    border: 0px solid #dddddd !important; 
+    background: #ffffff;
+    color: #333333;
+}
+
+/* .ui-layout-unit .ui-layout-unit-content {
+    padding: 0.2em 0em;
+    border: 0px none;
+    overflow: visible;
+} */
+
+.noScrollPrimefces .ui-layout-unit .ui-layout-unit-content {
+    padding: 0.2em 0em;
+    border: 0px none;
+    overflow: none !important;
+}
+
+.someCssClassName {
+    background-image: url(/resources/images/7895.jpg)  no-repeat top left !important;;
+}
+
+.ui-icon { 
+    width: 16px; 
+    height: 16px; 
+    background-image: url('../resources/images/tkIplFlow.png') !important; 
+}
+
+.avesettings {
+    background: url('7895.jpg') no-repeat;
+    cursor: pointer;
+    width: 126px;
+    height: 41px;
+    border: none;
+}
+
+.ui-icon-closethick {
+    background-position: -96px -128px;
+    background-color: #ce1111;
+    content: no-open-quote;
+    color: bisque;
+}
+
+.logo{
+	width:50%;
+}

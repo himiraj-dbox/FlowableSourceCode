@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:composite="http://java.sun.com/jsf/composite">
+<composite:interface>
+ <composite:attribute name="bean" />
+</composite:interface>
+<composite:implementation>
+	<p:panel>
+		<p:outputLabel value="Welcome  #{bean.loggenUserName}"
+			style="font-size:50px"></p:outputLabel>
+
+
+
+ <h:panelGrid columns ="2" style="width:100%">
+ <h:outputLabel value="Designation"></h:outputLabel>
+ <h:inputText value="#{biddinguserverification.designation}"></h:inputText>
+ <h:outputLabel value="Office/Work Address"></h:outputLabel>
+ <h:inputText value="#{biddinguserverification.officeAddress}"></h:inputText>
+  <h:outputLabel value="Service tax Number"></h:outputLabel>
+ <h:inputText value="#{biddinguserverification.serviceTaxNumber}"></h:inputText>
+ </h:panelGrid>
+ <h:commandButton  value="Submit" actionListener="#{biddinguserverification.updateInformation}">
+  <f:attribute name="userName" value="#{biddingHeader.loggenUserName}" />
+ </h:commandButton>
+
+
+
+
+
+	</p:panel>
+</composite:implementation>
+</html>

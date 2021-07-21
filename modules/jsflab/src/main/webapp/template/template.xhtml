@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Title</title>
+
+</h:head>
+<h:body>
+	<style>
+.testing .companyHeaderGrid.ui-panelgrid>*>tr, .companyHeaderGrid.ui-panelgrid .ui-panelgrid-cell
+	{
+	border: none;
+}
+
+.greenBackground .ui-layout-unit .ui-layout-unit-content {
+	padding: 0.2em 0em;
+	border: 0px none;
+	overflow: auto;
+	background-color: #92CC96 !important;
+}
+
+.greenbackgroundcontent .ui-widget-content {
+	background-color: #92CC96 !important;
+}
+
+.transparent .ui-state-hover, .ui-widget-content .ui-state-hover,
+	.ui-widget-header .ui-state-hover, .ui-state-active, .ui-widget-content .ui-state-active,
+	.ui-widget-header .ui-state-active, .ui-state-disabled,
+	.ui-widget-content .ui-state-disabled, .ui-widget-header .ui-state-disabled
+	{
+	background-color: transparent !important;
+}
+
+transparent2 .ui-state-disabled, .ui-widget-content .ui-state-disabled,
+	.ui-widget-header .ui-state-disabled {
+	cursor: default;
+	background-color: #e6e6e6;
+	background-image: none;
+	opacity: 1;
+	filter: alpha(opacity = 65);
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+
+.noBorderPanel .ui-panelgrid {
+	border-collapse: initial;
+}
+
+.noBordrPanel2 .ui-panelgrid .ui-panelgrid-cell {
+	border-width: 0px !important;
+	border-style: solid;
+	border-color: inherit;
+	padding: 4px 10px;
+}
+
+.ui-tabs .ui-tabs-nav.ui-widget-header {
+	background: #0C9D40 !important;
+	border-bottom: 1px solid #DDDDDD;
+	border-radius: 0;
+}
+
+.widthOneForPanelGrid {
+ width:20%;
+}
+.widthTwoForPanelGrid {
+ width:55%;
+}
+.widthThreeForPanelGrid {
+ width:10%;
+}
+
+.ui-layout-unit-content{
+background-image:'url(/resources/images/telkoInfosystemhome.png');
+}
+</style>
+	<p:layout fullPage="true">
+		<p:layoutUnit 
+			position="north" size="190" maxSize="190" minSize="190" 
+			style="background-image:'url(resources/images/telkoInfosystemhome.png');"
+			 resizable="false" closable="false"
+			collapsible="false">
+			<h:form>
+			
+			<h:panelGroup style="background-image:'url(resources/images/telkoInfosystemhome.png');">
+				<h:panelGrid columnClasses="widthOneForPanelGrid,widthTwoForPanelGrid,widthThreeForPanelGrid" styleClass="testing noBorderPanel noBordrPanel2"
+					columns="2" style="border: none">
+					<p:graphicImage  height="100"
+						width="100%;background-color: #0C9D40;" id="panelImage"
+						styleClass="widthOfBiddingHeader4 noBordrPanel2 noBorderPanel"
+						value="/resources/images/telkoInfosystem.jpg"></p:graphicImage>
+						
+						<p:graphicImage  height="100"
+						width="100%;background-color: #0C9D40;" id="panelImage2"
+						styleClass="widthOfBiddingHeader4 noBordrPanel2 noBorderPanel"
+						value="/resources/images/telkoInfosystemhome.png"></p:graphicImage>
+					
+					<h:panelGroup style="color: white; width: 100%;">
+					
+					<h:outputLink value="https://www.facebook.com/telkoinfosolutions/" target="_blank">
+  <h:graphicImage name="/resources/images/facebook.png" />
+</h:outputLink>
+						<p:commandLink styleClass="transparent transparent2" 
+							style="float: right;color: white;     margin-top: 80; "
+							immediate="false" id="commandLink1"
+							value="Contact Us"
+							
+							onclick="PF('signuplogin').show();" />
+						
+
+					</h:panelGroup>
+				</h:panelGrid>
+				<p:panelGrid columns="9" style="width:40%">
+  <p:menuButton value="Home">
+        <p:menuitem value="Homepage" url="/ActualBiddingHome.jsf" icon="ui-icon-extlink"/>
+    </p:menuButton>
+      <p:menuButton value="About">
+        <p:menuitem value="About US" url="/AboutUs.jsf"  icon="ui-icon-disk"/>
+        
+        <p:separator />
+        <p:menuitem value="Member Demographics"  url="/ActualBiddingHome.jsf"  icon="ui-icon-disk"/>
+        
+    </p:menuButton>
+     <p:menuButton value="Bidding" disabled="#{!biddingHeader.userLoggedIn}">
+        <p:menuitem value="Bidding" url="/biddingHome.jsf"  icon="ui-icon-disk"/>
+        
+        
+    </p:menuButton>
+      <p:menuButton value="System Integration" disabled="true">
+        <p:menuitem value="Bidding" url="/biddingHome.jsf"  icon="ui-icon-disk"/>
+        
+        <p:separator />
+        <p:menuitem value="Member Demographics"  url="/ActualBiddingHome.jsf"  icon="ui-icon-disk"/>
+        
+    </p:menuButton>
+        <p:menuButton value="Green Services" disabled="true">
+        <p:menuitem value="Bidding" url="/biddingHome.jsf"  icon="ui-icon-disk"/>
+        
+        <p:separator />
+        <p:menuitem value="Member Demographics"  url="/ActualBiddingHome.jsf"  icon="ui-icon-disk"/>
+        
+    </p:menuButton>
+ 
+        <p:menuButton value="Features" disabled="false">
+        <p:menuitem value="Buying *Coming Soon" url="/biddingHome.jsf" disabled="true" style="background:black"  icon="ui-icon-disk"/>
+        
+        <p:separator />
+        <p:menuitem value="Selling "  url="/ActualBiddingHome.jsf"  icon="ui-icon-disk"/>
+           <p:separator />
+        <p:menuitem value="B2B Exchange "  url="/ActualBiddingHome.jsf"  icon="ui-icon-disk"/>
+        
+    </p:menuButton>
+    
+     <p:menuButton value="Articles" disabled="false">
+        <p:menuitem value="E Waste" url="/biddingHome.jsf"  icon="ui-icon-disk"/>
+        
+        <p:separator />
+        <p:menuitem value="Bio Medical Waste "  url="/ActualBiddingHome.jsf"  icon="ui-icon-disk"/>
+           <p:separator />
+        <p:menuitem value="General Waste"  url="/ActualBiddingHome.jsf"  icon="ui-icon-disk"/>
+        
+         <p:separator />
+        <p:menuitem value="Tech Info"  url="/ActualBiddingHome.jsf"  icon="ui-icon-disk"/>
+        
+    </p:menuButton>
+    <p:menuButton value="Join"  disabled="false">
+        <p:menuitem value="Sign Up" url="/signup.jsf"  icon="ui-icon-disk"/>
+        
+    </p:menuButton>
+    </p:panelGrid>
+</h:panelGroup>
+			</h:form>
+		</p:layoutUnit>
+
+		<p:layoutUnit position="east"  size="#{biddingHeader.eastHeaderSize}" id="eastPanelHeader" header="User Area" 
+			resizable="true" closable="false" collapsible="true">
+			<h:form id="eastLayoutForm">
+		
+			
+			
+			
+			<p:panel rendered="#{biddingHeader.userLoggedIn}">
+			<h:commandLink  action ="#{biddingHeader.logOut}" style="float:right" value="Log out" rendered="#{biddingHeader.userLoggedIn}"  />
+			<p:inputText disabled="true" value="Welcome  -  Gaurav Shrichand Lalwani"/> <br/>
+			<p:inputText disabled="true" value="User Name : gamerboy1001@gmail.com"/> <br/>
+			<p:inputText disabled="true" value="User Name : gamerboy1001@gmail.com"/> <br/>
+			<p:commandButton value="ADD A User Bid"></p:commandButton>
+		
+			
+			</p:panel>
+			
+				<p:outputLabel style="    font-size: xx-large;margin-left: 20;" value="Welcome " rendered="#{biddingHeader.userLoggedIn}" ></p:outputLabel>
+				<br />
+				<p:outputLabel value="#{biddingHeader.loggenUserName}" rendered="#{biddingHeader.userLoggedIn}" ></p:outputLabel>
+			<p:panel id="panel2" styleClass="login" style="margin-top: 150;border:none" rendered="#{!biddingHeader.userLoggedIn}" > 
+				<p:messages autoUpdate="true" id="LoginMessages" showDetail="true"
+					closable="true" />
+			
+					<p:outputLabel id="label2" value="User name"></p:outputLabel>
+					<p:inputText id="text1" value="#{biddingHeader.luserName}" style="    width: 150;">
+						<p:ajax process="@this" update="@this"></p:ajax>
+					</p:inputText>
+					<p:outputLabel id="label3" value="Password"></p:outputLabel>
+					<p:password redisplay="true" id="password" style="    width: 150;"
+						value="#{biddingHeader.lpassword}">
+						<p:ajax process="@this" update="@this"></p:ajax>
+					</p:password>
+					
+					<c:if test="#{biddingHeader.userLoggedIn}">
+					
+					
+					</c:if>
+
+				
+				<p:commandButton immediate="true" id="button1" value="Login" update="@all"
+					action="#{biddingHeader.loggin}">
+					
+				</p:commandButton>
+
+			</p:panel>
+			</h:form>
+		</p:layoutUnit>
+	
+		<p:layoutUnit position="south" size="50" resizable="false"
+			closable="false" collapsible="false">
+			<h:outputText value="Telko Info Solution Private Limited " />
+			<br />
+			<p:outputLabel value="Powered by Codex Developer"
+				style="font-size: 8;" />
+		</p:layoutUnit>
+
+		<p:layoutUnit position="west" size="200" header="Trending"
+			resizable="true" closable="false" collapsible="true">
+			<h:form>
+
+			</h:form>
+		</p:layoutUnit>
+
+
+
+		<p:layoutUnit position="center">
+			<ui:insert name="content">Put default content here, if any.</ui:insert>
+		</p:layoutUnit>
+	</p:layout>
+</h:body>
+</html>

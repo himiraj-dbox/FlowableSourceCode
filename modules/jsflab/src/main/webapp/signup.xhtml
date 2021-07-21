@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition
+ template="template/template.xhtml"
+ xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	>
+	<ui:define name="content">
+	<h:form >
+	
+  <p:panel id="panel1">
+<p:messages autoUpdate="true" id="SignUpMessages" showDetail="true"  closable="true" />
+	
+		
+
+ 
+ <p:panel id="panel3">
+ 
+ <p:panel id="panel4">
+
+ <p:outputLabel id="label713" value="SignUP"></p:outputLabel>
+ <p:panelGrid id="grid2" columns ="2" style="widtp:100%">
+ <p:outputLabel id="label23" value="First Name*"></p:outputLabel>
+ <p:inputText  id="text4"  value="#{biddingHeader.firstName}"   required="true" requiredMessage="First Name is mendatory">
+  <p:ajax  event="change" update="SignUpMessages"/>
+ </p:inputText>
+ <p:outputLabel id="label4" value="Last Name*"></p:outputLabel>
+ <p:inputText id="text5" value="#{biddingHeader.lastName}" required = "true" requiredMessage="Last Name is mendatory">
+ <p:ajax  event="change" update="SignUpMessages"/>
+ </p:inputText>
+ <p:outputLabel id="label5" value="Choose Username*"></p:outputLabel>
+ <p:inputText id="text6" value="#{biddingHeader.userName}">
+  
+  <p:ajax event="change" update="SignUpMessages"/>
+ </p:inputText>
+ <p:outputLabel id="label7" value="Choose Password*"></p:outputLabel>
+  <p:password redisplay="true"  id="password3"  required="true" value="#{biddingHeader.password}">
+ <p:ajax event="change" update="SignUpMessages"/>
+  </p:password>
+ <p:outputLabel  id="label6" value="Renter Password*"></p:outputLabel>
+  <p:password redisplay="true" id="password4" required="true"  value="#{biddingHeader.reenterPassword}"  >
+  <p:ajax event="change" update="SignUpMessages"/>
+ </p:password>
+ <p:outputLabel id="label99" value="Email*" ></p:outputLabel>
+ <p:inputText  value="#{biddingHeader.emailID}" id="signup_emailID" validatorMessage="Email Address is not valid">
+ <p:message autoUpdate="true" closable="true" for="signup_emailID" id="message" />
+    <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]"/>
+    <p:ajax  event="change" update="SignUpMessages message"/>
+    <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]"/>
+    </p:inputText>
+  <p:outputLabel id="label9" value="Contact Number*"></p:outputLabel>
+ <p:inputText id="text10" value="#{biddingHeader.contactNumber}" required = "true" requiredMessage="Contact Number is mendatory"> 
+ <p:ajax event="change" update="SignUpMessages"/>
+ </p:inputText> 
+ <p:outputLabel id="label10" value="Company Name"></p:outputLabel>
+ <p:inputText id="text11" value="#{biddingHeader.companyName}"></p:inputText>
+  <p:outputLabel id="label11" value="Designation"></p:outputLabel>
+ <p:inputText id="text12" value="#{biddingHeader.designation}"></p:inputText>
+  <p:outputLabel id="label12" value="Address*"></p:outputLabel>
+ <p:inputText id="text13" value="#{biddingHeader.address}" required = "true" requiredMessage="Address field is mendatory"></p:inputText>
+  <p:outputLabel id="label913" value="City*"></p:outputLabel>
+ <p:inputText id="text14" value="#{biddingHeader.city}" required = "true" requiredMessage="City field is mendatory">
+ <p:ajax event="change" update="SignUpMessages"/>
+ </p:inputText>
+  <p:outputLabel id="label14" value="State*"></p:outputLabel>
+ <p:inputText id="text15" value="#{biddingHeader.state}" required = "true" requiredMessage="State field is mendatory">
+  <p:ajax event="change" update="@(form)"/>
+ </p:inputText>
+ </p:panelGrid>
+
+ <p:commandButton  id="buttonCommand1223" type="submit"   value="Submit">
+ <p:ajax event="click"  update="@(form)" process="@(all)" listener="#{biddingHeader.register}"> </p:ajax>
+ </p:commandButton>
+</p:panel>
+</p:panel>
+
+		
+		</p:panel>
+		</h:form>
+	</ui:define>
+</ui:composition>

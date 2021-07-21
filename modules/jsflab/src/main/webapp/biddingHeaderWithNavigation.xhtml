@@ -1,0 +1,299 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+template="template/template.xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:composite="http://java.sun.com/jsf/composite/components"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	>
+<ui:define name="content">
+	<h:form>
+		<style>
+		.actualBiddingHeader{
+		       font-size: 1.0em !important;
+		}
+		.ui-accordion .ui-accordion-header.ui-state-default {
+    margin-bottom: 2px;
+    border: 1px solid #0C9D40;
+    background: #0C9D40;
+    
+}
+		.actualBiddingsubHeader{
+		           font-size: 0.8em !important;
+		           text-align: justify !important;;
+    text-justify: inter-word !important;;
+
+		}
+		.companyHeaderGrid.ui-panelgrid>*>tr,
+.companyHeaderGrid.ui-panelgrid .ui-panelgrid-cell {
+    border: none;
+}
+.alignPanelSeriesImages {
+}
+	</style>
+		<script>
+			function myFunction() {
+				var x = document.getElementsByClassName("abcd");
+				x[0].innerHTML = "Hello World!";
+			}
+		</script>
+	<br />
+	
+   <p:imageSwitch effect="fade" widgetVar="switcher" id="manuelSwitcher"
+    slideshowAuto="true" style="margin-left:100px;height:258">
+    <ui:repeat value="3" var="image" id="manuelSwitcherImages">
+       <p:panel style="border:none;">
+     
+		
+			<p:graphicImage 
+						style="
+    width: 80%;
+    height: 70%;"
+							value="/resources/images/tKiPLS.png"
+							 ></p:graphicImage>
+							
+       </p:panel>
+        <p:panel style="border:none;">
+       
+	
+		
+			<p:graphicImage 
+						style="
+    width: 80%;
+    height: 70%;"
+							value="/resources/images/output_Wv91hm.gif"
+							 ></p:graphicImage>
+					
+       </p:panel>
+        <p:panel style="border:none;">
+       
+	
+			<p:graphicImage 
+						style="
+    width: 80%;
+    height: 70%;"
+							value="/resources/images/tkiplSystemIntegrator.png"
+							 ></p:graphicImage>
+							 
+		
+		
+       </p:panel>
+       <p:panel style="border:none;">
+       
+			
+			<p:graphicImage 
+						style="
+    width: 80%;
+    height: 70%;"
+							value="/resources/images/thinkGreen.png"
+							 ></p:graphicImage>
+							
+       </p:panel>
+    </ui:repeat>
+</p:imageSwitch>
+		 
+		
+ <p:accordionPanel>
+        <p:tab title="Our Approach">
+          
+              
+                <h:outputLabel
+                    value="Corroborating and fortifying the IT infrastructure" />
+                    <br />
+                      <h:outputLabel
+                    value="We have tried to embark a concept of valuing the Lifecycle of IT with business proposition by banking        on the 
+
+concept of Banks" />
+           
+        </p:tab>
+        <p:tab title="System Integration-Overview">
+           
+               
+                <h:outputLabel value="With the transition to service management comes the need for greater IT flexibility, compute and storage utilization, 
+
+and cost variability. There is a pronounced need to understand the complexities of the IT environment and ensure 
+
+that the technology is in line with your business objectives. Technologies in the areas of virtualization, service 
+
+provisioning, help address these new requirements and enable the development of data centers that are more agile 
+
+than ever before." />
+<br />
+<br />
+     <h:outputLabel value="Telko Info Solutions Pvt Ltd (TKIPL) ensure your business is supported by a robust networking platform and 
+
+help you optimise the performance and availability of the unified communications and collaboration tools that run 
+
+on it – including desktop and contact centre technologies. We can also assist to put in place a next generation 
+
+data centre, support your move to cloud computing, and ensure that all elements of your infrastructure" />
+
+<br />
+<br />
+     <h:outputLabel value="These capabilities are underpinned by a full lifecycle of IT services encompassing consulting, professional, 
+
+support, managed, procurement and supply chain and IT outsourcing services. The result is a stable yet agile 
+
+technology estate – one that sets you up to embrace business change with confidence." />
+
+<br />
+<br />
+     <h:outputLabel value="Telko Info Solutions Pvt Ltd (TKIPL) ensure the highest levels of certainty and satisfaction through a deep-set 
+
+commitment to our clients, comprehensive industry expertise and a network of innovation and delivery centers." />
+          
+          <br />
+<br />
+     <h:outputLabel value="And while most organizations understand the value of optimizing their data-center environments, they often don’t 
+
+know where or how to begin. That’s where we can help." />
+<br />
+<br />
+     <h:outputLabel value="Telko Info Solutions Pvt Ltd (TKIPL) employ current and proprietary technologies and processes to help you 
+
+design, implement, and manage data-center solutions that align to your business priorities, improve IT-service 
+
+management and enable high performance." />
+
+<br />
+<br />
+     <h:outputLabel value="Telko Info Solutions Pvt Ltd (TKIPL) employ current and proprietary technologies and processes to help you 
+
+design, implement, and manage data-center solutions that align to your business priorities, improve IT-service 
+
+management and enable high We at Telko Info Solutions Pvt Ltd (TKIPL) have built our business proposition to help you maximize value from 
+
+your infrastructure which is at the very core of your business. There is a pronounced need to understand the 
+
+complexities of the IT environment and ensure that the technology is in line with your business objectives." />
+          
+        </p:tab>
+        <p:tab title="Green Business- Overview">
+          
+              
+                <h:outputLabel
+                    value="Telko Info Solutions Pvt Ltd (TKIPL) is a novel B2B Exchange of Used/Pre-owned IT, telecom, imaging, and POS 
+
+B2B marketplace. TKIPL’s members' only organization is exclusively for Recyclers, Dismantlers, brokers, resellers, 
+
+service Providers, System integrators, Retailers, wholesalers and others. Whether you're a publicly held organization 
+
+or a small computer setup, Telko Info Solutions Pvt Ltd (TKIPL) can increase your client base, profitability, and 
+
+efficiency." />
+                    <br />
+                    <br />
+                      <h:outputLabel
+                    value="Telko Info Solutions Pvt Ltd (TKIPL) unique selling, sourcing and searching tools were requested by and designed 
+
+for IT companies like yours. Buy, sell and research new, used and refurbished components in record time with Real 
+
+Time Inventory, sortable columns, broadcasts and many more E -waste recycling and recovery" />
+<br />
+                    <br />
+                      <h:outputLabel
+                    value="• Data security solutions" />
+                    <br />
+                    <br />
+                      <h:outputLabel
+                    value="• Repair and Refurbishing solutions" />
+                    <br />
+                    <br />
+                      <h:outputLabel
+                    value="• NGO/CSR Services" />
+                    <br />
+                    <br />
+                      <h:outputLabel
+                    value="• Collection and Reverse logistics" />
+                    <br />
+                    <br />
+                      <h:outputLabel
+                    value="• De manufacturing and parts harvesting" />
+                    <br />
+                    <br />
+                      <h:outputLabel
+                    value="• Trade value of E waste" />
+                    <br />
+                    <br />
+                      <h:outputLabel
+                    value="• Consulting" />
+                    <br />
+                    <br />
+                      <h:outputLabel
+                    value="• Solution for bonded material" />
+                    <br />
+                    <br />
+                      <h:outputLabel
+                    value="• Certification" />
+           
+        </p:tab>
+        
+    </p:accordionPanel>		
+							 
+		</h:form>					 
+		</ui:define>
+	
+</ui:composition>
+
+
+
+<!-- <!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition 
+ template="template/template.xhtml"
+  xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:composite="http://java.sun.com/jsf/composite/components"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	>
+
+	<ui:define name="content">
+	<style> 
+	.greenTabBackground .ui-tabs .ui-tabs-nav.ui-widget-header {
+    background: #0C9D40;
+    border-bottom: 1px solid #DDDDDD;
+    border-radius: 0;
+   
+}
+	</style>
+<h:form>
+<p:panelGrid columns="4">
+  
+
+ </p:panelGrid>
+	<p:tabView styleClass="greenTabBackground" id="biddingHeaderWithNavigation" dynamic="true" cache="true" scrollable="true" >
+        <p:tab title="Home" >
+        
+         <ui:include src="ActualBiddingHome.xhtml"></ui:include>
+     
+        </p:tab>
+        <p:tab title="Bidding" disabled="#{!biddingHeader.userLoggedIn}">
+         <ui:include src="biddingHome.xhtml"></ui:include>
+        </p:tab>
+        <p:tab title="System Integration" disabled="true">
+            <h:panelGrid columns="2" cellpadding="10">
+               
+                <h:outputText value="After a break of more than 15 years..." />
+            </h:panelGrid>
+        </p:tab>
+          <p:tab title="Green Waste" disabled="true">
+            <h:panelGrid columns="2" cellpadding="10">
+               
+                <h:outputText value="After a break of more than 15 years..." />
+            </h:panelGrid>
+        </p:tab>
+         <p:tab title="Contact US" >
+           
+               <ui:include src="ContactUs.xhtml"></ui:include>
+            
+        </p:tab>
+    </p:tabView>
+   
+
+		</h:form>
+	</ui:define>
+</ui:composition> -->

@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	template="template/ui.xhtml">
+
+	<ui:define name="body">
+
+		<h:form id="biddingRoom">
+		
+		<p:poll interval="2" listener="#{biddingroom.autoRefresh}" update="BiddingPanel" />
+		
+		<c:if test="#{biddingroom.showBiddingRoom}">
+		<p:panel style="text-align:center;background:lightgray;height: 25%">
+		<h:panelGroup  style="text-align:center">
+		<p:outputLabel value="Welcome To Bidding Room" style="float:center;font-size:40px"/> <br/>
+		<p:outputLabel value="Bid Reference Number  -  #{biddingroom.bidReferceNo}" style="font-size:40px" />
+		<br/>
+		<p:outputLabel value="Product Name  - #{biddingroom.productName}" style="font-size:40px" />
+		</h:panelGroup>
+		</p:panel>
+		<p:panelGrid columns="4">
+	<p:panel style="border:0">
+		
+	
+		
+		<p:outputLabel value="Product Description - "/>
+	   
+		
+		<p:outputLabel value="#{biddingroom.itemDexcription}"/>
+
+		
+		</p:panel>
+		
+		<p:panel   style="    border:0">
+		<p:panel    style="text-align:center;    border:0">
+		  <p:outputLabel value="Enter Your Bidding Amount"/>
+		  <br/>
+		  <p:inputText value="#{biddingroom.increaseBy}" />
+		   
+		   </p:panel>
+		  
+	</p:panel   >
+		
+		
+		
+		<p:panel style="border:0;">
+		<p:panelGrid columns="2" style="margin-left:65">
+		<p:panel   style="text-align:center;width:200;    border:0">
+		<p:outputLabel style="float:left" value="Product id"/>
+		</p:panel>
+		<p:panel   style="text-align:center;width:200;    border:0">
+		<p:outputLabel style="float:left" value="#{biddingroom.productID}"/>
+		</p:panel>
+		
+		
+		<p:panel   style="text-align:center;width:200;    border:0">
+		<p:outputLabel style="float:left" value="Condition"/>
+		</p:panel>
+		<p:panel   style="text-align:center;width:200;    border:0">
+		<p:outputLabel style="float:left" value="#{biddingroom.condition}"/>
+		</p:panel>
+		
+		
+		<p:panel   style="text-align:center;width:200;    border:0">
+		<p:outputLabel style="float:left" value="Warranty"/>
+		</p:panel>
+		<p:panel   style="text-align:center;width:200;    border:0">
+		<p:outputLabel style="float:left" value="#{biddingroom.warranty}"/>
+		</p:panel>
+		
+		</p:panelGrid>
+		</p:panel>
+		</p:panelGrid>
+
+<p:panelGrid columns="3" id="BiddingPanel">
+<p:outputPanel  id="containmentPanel" layout="block" style="width:400px;height:200px;border:0px solid black;">
+    <p:panel id="containment" header="Current prize In (Rs)" style="width:400px;height:200px;margin:0" >
+       
+       <p:outputLabel style="font-size: 80" value="#{biddingroom.amount}"/>
+        
+    </p:panel>
+    <p:resizable for="containment" containment="true"/>
+</p:outputPanel>
+		
+ 
+ 
+ <p:commandButton update="BiddingPanel" value="BID" action="#{biddingroom.clickOnBid}"  style="width:400px;height:200px">
+						    <f:param  name="loginUser" value="#{biddingHeader.loggenUserName}" />
+						    
+						  </p:commandButton>
+
+ <p:imageSwitch effect="fade">
+        <ui:repeat value="#{biddingroom.biddingRoomImages}" var="imageBiddingRoom">
+            <p:graphicImage style="width:300;height:400"  value="image/#{imageBiddingRoom}" />
+        </ui:repeat>
+    </p:imageSwitch>
+
+</p:panelGrid>
+			</c:if>
+			
+		<c:if test="#{biddingroom.showBiddingRoomDialog}">
+			<p:dialog closable="false" rendered="#{biddingroom.showBiddingRoomDialog}" visible="#{biddingroom.showBiddingRoomDialog}" modal="true"  resizable="false" header="Product View"  height="400" width="600">
+			<p:commandButton value="Close" type="submit"
+						     action="#{biddingroom.closeBiddingRoomPopup}">
+						     
+						  </p:commandButton>
+						  <p:panel rendered="#{biddingroom.validateUser eq 'NL'}">
+						  <p:outputLabel value="You must be logged in to Enter into a Bid"/>
+						  </p:panel>
+						  <p:panel rendered="#{biddingroom.validateUser eq 'NR'}">
+						  <p:outputLabel value="You are not Registered for this Bid"/>
+						  </p:panel>
+						  
+		
+			</p:dialog>
+			</c:if>
+		</h:form>
+	</ui:define>
+</ui:composition>

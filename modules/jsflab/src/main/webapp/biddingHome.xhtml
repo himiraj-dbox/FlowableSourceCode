@@ -1,0 +1,202 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition
+template="template/template.xhtml"
+ xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:composite="http://java.sun.com/jsf/composite/components"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	>
+	<ui:define name="content">
+	<h:form>
+		<script>
+			function myFunction() {
+				var x = document.getElementsByClassName("abcd");
+				x[0].innerHTML = "Hello World!";
+			}
+		</script>
+
+
+
+	
+	
+			<p:panel>
+				<p:panelGrid columns="1">
+					<p:panel rendered="false">
+						<p:outputLabel value="Previous Bid" style="width:80%;height:20%;margin-left: 35%;font-size:x-large"></p:outputLabel>
+						<p:dataTable value="#{biddinghome.previousBid}" var="biddingk"
+						paginator="true"
+                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         rowsPerPageTemplate="5,10,15">
+							<p:column headerText="Bid Reference Number">
+								<p:outputLabel value="#{biddingk.bidReferceNo}"></p:outputLabel>
+							</p:column>
+							<p:column headerText="Product Name">
+								<p:outputLabel value="#{biddingk.productName}"></p:outputLabel>
+							</p:column>
+								
+							<p:column>
+								<h:commandButton value="Enter Into Bidding" 
+						     action="#{biddingroom.populateFrmBidding}">
+						    <f:param name="bidReferenceNumber" value="#{biddingk.bidReferceNo}" />
+						    <f:param name="userNamw" value="#{biddingHeader.userLoggedIn}" />
+						    
+						  </h:commandButton>
+						    <h:commandButton value="View Product Information"
+						    onclick="PF('showproductCustom').show();"
+						     actionListener="#{biddinghome.openProductViewPopup}">
+						    <f:attribute name="bidReference" value="#{biddingk.bidReferceNo}" />
+						  </h:commandButton>
+							</p:column>
+						</p:dataTable>
+
+					</p:panel>
+					<p:panel>
+						<p:outputLabel value="Ongoing Bid" style="width:80%;height:20%;margin-left: 35%;font-size:x-large"></p:outputLabel>
+						<p:dataTable value="#{biddinghome.ongoingBid}" var="biddingk"
+						paginator="true"
+                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         rowsPerPageTemplate="5,10,15">
+							<p:column headerText="Bid Reference Number">
+								<p:outputLabel value="#{biddingk.bidReferceNo}"></p:outputLabel>
+							</p:column>
+							<p:column headerText="Product Name">
+								<p:outputLabel value="#{biddingk.productName}"></p:outputLabel>
+							</p:column>
+							<p:column headerText="Product Type">
+								<p:outputLabel value="#{biddingk.itemName}"></p:outputLabel>
+							</p:column>
+						
+							<p:column headerText="Manufacturer Name">
+								<p:outputLabel value="#{biddingk.manufacturerName}"></p:outputLabel>
+							</p:column>
+							<p:column headerText="Posted By">
+								<p:outputLabel value="#{biddingk.postedBy}"></p:outputLabel>
+							</p:column>
+							<p:column headerText="Status">
+								<p:outputLabel value="#{biddingk.status}"></p:outputLabel>
+							</p:column>
+							<p:column headerText="Condition">
+								<p:outputLabel value="#{biddingk.condition}"></p:outputLabel>
+							</p:column>
+							<p:column headerText="Warranty">
+								<p:outputLabel value="#{biddingk.warranty}"></p:outputLabel>
+							</p:column>
+							<p:column headerText="Item Description">
+								<p:outputLabel value="#{biddingk.itemDexcription}"></p:outputLabel>
+							</p:column>
+							<p:column headerText="Location">
+								<p:outputLabel value="#{biddingk.locations}"></p:outputLabel>
+							</p:column>
+							<p:column>
+						    <h:commandButton value="View Product Information"
+						    onclick="PF('showproductCustom').show();"
+						     actionListener="#{biddinghome.openProductViewPopup}">
+						    <f:attribute name="bidReference" value="#{biddingk.bidReferceNo}" />
+						  </h:commandButton>
+						  <h:commandButton value="Enter Into Bidding"
+						  
+						     action="#{biddingroom.populateFrmBidding}">
+						    <f:param name="bidReferenceNumber" value="#{biddingk.bidReferceNo}" />
+						    <f:param name="userNamw" value="#{biddingHeader.loggenUserName}" />
+						    
+						  </h:commandButton>
+							</p:column>
+						</p:dataTable>
+
+					</p:panel>
+
+				
+
+				</p:panelGrid>
+	<p:panel styyle="width:30%">
+						<p:outputLabel value="Upcoming Bid" style="width:80%;height:20%;margin-left: 40%;font-size:-webkit-xxx-large"></p:outputLabel>
+						<p:dataTable value="#{biddinghome.upcomingBid}" var="biddingk"
+						paginator="true"
+                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         rowsPerPageTemplate="5,10,15">
+							<p:column headerText="Bid Reference Number">
+								<p:outputLabel value="#{biddingk.bidReferceNo}"></p:outputLabel>
+							</p:column>
+							<p:column headerText="Product Name">
+								<p:outputLabel value="#{biddingk.productName}"></p:outputLabel>
+							</p:column>
+							<p:column>
+						    <h:commandButton value="View Product Information"
+						    
+						     actionListener="#{biddinghome.openProductViewPopup}">
+						    <f:attribute name="bidReference" value="#{biddingk.bidReferceNo}" />
+						  </h:commandButton>
+						  </p:column>
+						  <p:column headerText="Register For Bid">
+						  <h:commandButton value="Enter Into Bidding"
+						  
+						     action="#{biddingroom.populateFrmBidding}">
+						    <f:param name="bidReferenceNumber" value="#{biddingk.bidReferceNo}" />
+						    <f:param name="userNamw" value="#{biddingHeader.loggenUserName}" />
+						    
+						  </h:commandButton>
+						   <h:commandButton value="Register for the Bid"
+						    
+						     actionListener="#{biddinghome.openRegisterButtonPopup}">
+						    <f:attribute name="loginUser" value="#{biddingHeader.loggenUserName}" />
+						    <f:attribute name="bidReference" value="#{biddingk.bidReferceNo}" />
+						  </h:commandButton>
+							</p:column>
+						</p:dataTable>
+
+					</p:panel>
+			</p:panel>
+			<p:panelGrid>
+			
+			 <h:commandButton value="Register For a Bid"
+						   
+						     actionListener="#{biddinghome.registerForBid}">
+						    
+						  </h:commandButton>
+			</p:panelGrid>
+			<p:dialog closable="false" rendered="#{biddinghome.productViewpopup}" visible="#{biddinghome.productViewpopup}"   resizable="false" header="Product View"  height="600" width="900">
+			<h:commandButton value="Close"
+						   style="float:right"
+						     actionListener="#{biddinghome.closeProductViewPopup}">
+						    
+						  </h:commandButton>
+			<p:panel>
+			<composite:productView bean = "#{biddinghome.productViewBid}"/>
+			</p:panel>
+			</p:dialog>
+			
+			<p:dialog closable="false" rendered="#{biddinghome.registerButtonPopup}" visible="#{biddinghome.registerButtonPopup}"   resizable="false" header="Product View"  height="400" width="600">
+			<h:commandButton value="Close"
+						   
+						     actionListener="#{biddinghome.closeRegisterButtonPopup}">
+						    
+						  </h:commandButton>
+			<p:panel >
+			<p:panel rendered="#{biddinghome.userNotLogged}">
+			<p:outputLabel value="You Must be logged In . Please login or Register First"></p:outputLabel>
+			</p:panel>
+			
+			
+			<p:panel rendered="!#{biddinghome.userVerified}">
+			<p:outputLabel value="User Verification is in Progree. Please try after some time or contact System Admin"></p:outputLabel>
+			</p:panel>
+			
+			<p:panel rendered="!#{biddinghome.userAlreadyRegisteredForBid}">
+			<p:outputLabel value="You are already registered for this Bid"></p:outputLabel>
+			</p:panel>
+		
+		
+			<h:outputLabel rendered="#{!biddinghome.userVerified}" value="Your verification is in Progress. Please wait for 24 hour or contact Us for fast Approval"/>
+		    <h:outputLabel rendered="#{biddinghome.needToRegisterUser}" value="Registered for Bid Successfully"/>
+		     <h:outputLabel rendered="#{biddinghome.userAlreadyRegisteredForBid}" value="You are already Registered for the Bid"/>
+			<p:panel rendered="#{biddinghome.userNotAlreadyRegistered}">
+			<composite:biddingVerified bean = "#{biddinguserverification}"/>
+			</p:panel>
+			</p:panel>
+			</p:dialog>
+		</h:form>
+	</ui:define>
+</ui:composition>

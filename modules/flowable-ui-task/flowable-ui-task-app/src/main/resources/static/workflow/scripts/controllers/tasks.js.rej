@@ -1,0 +1,9 @@
+diff a/modules/flowable-ui-task/flowable-ui-task-app/src/main/resources/static/workflow/scripts/controllers/tasks.js b/modules/flowable-ui-task/flowable-ui-task-app/src/main/resources/static/workflow/scripts/controllers/tasks.js	(rejected hunks)
+@@ -279,6 +279,7 @@
+                     }
+                  var taskNameIndex = 0 ;
+                  $scope.model.uniqueTaskName = [];
++                 for (var taskNameIndex=0; taskNameIndex < $scope.model.tasks.length; taskNameIndex++) {
+                 	if(!$scope.model.uniqueTaskName.contains($scope.model.tasks[taskNameIndex].name)){
+                 		$scope.model.uniqueTaskName.push($scope.model.tasks[taskNameIndex].name);
+                 	}

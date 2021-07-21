@@ -1,0 +1,77 @@
+
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	template="template/ui.xhtml">
+
+	<ui:define name="body">
+
+		<p:panel>
+
+
+
+		</p:panel>
+
+		<p:panel>
+			<ui:include src="/biidingHeader.xhtml"></ui:include>
+		</p:panel>
+		<h:form id="productView">
+			<h:panelGrid columns="2"> 
+		<p:outputLabel value="Enter the Apache Derby Querry Where Clause for More Dynamic"/>
+		<p:inputText value="#{productsearch.apacheWhereQuery}"/>	
+		<p:selectBooleanCheckbox id="enableSearch" value="#{productsearch.enableQuery}">
+		<f:ajax render="enableSearch runQueryCommandButton"></f:ajax>
+		</p:selectBooleanCheckbox>
+		<h:commandButton id="runQueryCommandButton" value="Run the Query" disabled="#{!productsearch.enableQuery}">
+		<f:ajax render="productViewDatatable"></f:ajax>
+		</h:commandButton>
+		
+			</h:panelGrid>
+			
+			<p:dataTable var="productView" value="#{productsearch.productList}" rows="10"
+			 id="productViewDatatable"
+                         paginator="true"
+                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         rowsPerPageTemplate="5,10,15">
+			<p:column headerText="ProductImage">
+			
+            <p:graphicImage id="productImage"
+						value="#{productsearch.destination}#{productView.productImagePath}" ></p:graphicImage>
+        </p:column>
+        <p:column headerText="Product ID">
+            <h:outputText value="#{productView.productId}" />
+        </p:column>
+        <p:column headerText="Manufacturer Name">
+            <h:outputText value="#{productView.productmanufacturerName}" />
+        </p:column>
+        <p:column headerText="Manufacturer ID">
+            <h:outputText value="#{productView.productManufacturerId}" />
+        </p:column>
+        <p:column headerText="Price">
+            <h:outputText value="#{productView.price}" />
+        </p:column>
+        <p:column headerText="Availability">
+            <h:outputText value="#{productView.availability}" />
+        </p:column>
+        <p:column headerText="Hierarchy">
+            <h:outputText value="#{productView.hierarchy}" />
+        </p:column>
+        <p:column headerText="Nuber of Sold">
+            <h:outputText value="#{productView.numberOfSold}" />
+        </p:column>
+        <p:column headerText="Number Of Time Searched">
+            <h:outputText value="#{productView.numOfTimeSearched}" />
+        </p:column>
+        
+			
+			</p:dataTable>
+			
+			
+		</h:form>
+		
+	</ui:define>
+</ui:composition>

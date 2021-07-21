@@ -1,0 +1,1 @@
+select Name_ 'Queue', count(Name_) 'Pending_Invoices' from flowable.act_ru_task where Proc_Def_Id_ like 'final-AP%' group by Name_;

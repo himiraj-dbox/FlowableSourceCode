@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	template="template/ui.xhtml">
+
+	<ui:define name="body">
+<h:form>
+ <p:panelGrid id="panelGrid5" columns="7" style="margin-left:150px; height: 66px; " cellpadding="0" cellspacing="0"> 
+
+<p:commandButton id="commandButton1" action="actualBidding" value="Home" style="widtp: 106px; height: 60px; "></p:commandButton>
+<p:commandButton id="commandButton2" action="aboutUs" value="About Us" style="widtp: 104px; height: 60px; "></p:commandButton>
+<p:commandButton id="commandButton3" action="systemIntegration" disabled="true" value="System Integration" style="height: 58px; "></p:commandButton>
+<p:commandButton id="commandButton4" action="biddinghome" value="Biddingss" style='height: 55px; font-variant: normal; font-family: "Times New Roman", Serif; font-style: oblique'/>
+<p:commandButton id="commandButton5" action="greenWaste" disabled="true" value="Green Waste " style="height: 55px; "></p:commandButton>
+<p:commandButton id="commandButton6" action="joinUS" disabled="true" value="Join Us" style="height: 52px; "></p:commandButton>
+<p:commandButton id="commandButton7" action="contctUs"  value="Contact Us" style="height: 49px; "></p:commandButton>
+  
+
+</p:panelGrid>
+ <p:outputLabel value="Bidding Keeper" style="font-size:50px"></p:outputLabel> <br/>
+		<p:dataTable value="#{biddingKeeper.biddingList}" var="biddingk" rows="10"
+			
+                         paginator="true"
+                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         rowsPerPageTemplate="5,10,15">
+		<p:column headerText="Bid Reference Number">
+		<p:outputLabel value="#{biddingk.bidReferceNo}"></p:outputLabel>
+		</p:column>
+		<p:column headerText="Product Name">
+		<p:outputLabel value="#{biddingk.productName}"></p:outputLabel>
+		</p:column>
+		<p:column headerText="Starting Date">
+		<p:outputLabel value="#{biddingk.startingDate}"></p:outputLabel>
+		</p:column>
+		<p:column headerText="End Date">
+		<p:outputLabel value="#{biddingk.endDate}"></p:outputLabel>
+		</p:column>
+		
+		</p:dataTable>	
+		
+		<p:panel>
+		<p:panelGrid columns="2">
+		<p:outputLabel value="Enter Bid Reference Number to update Price"> </p:outputLabel>
+		<p:inputText value="#{biddingKeeper.bidReferenceNumber}">
+		<f:ajax event="change" render="@all"> </f:ajax>
+		<f:validator validatorId="bidkeepervalidator" />
+		</p:inputText>
+		<p:outputLabel value="Amount "> </p:outputLabel>
+		<p:inputText value="#{biddingKeeper.amount}"></p:inputText>
+		<p:outputLabel value="Basic Amount "> </p:outputLabel>
+		<p:inputText value="#{biddingKeeper.increaseBy}"></p:inputText>
+		</p:panelGrid>
+			<h:commandButton value="Submit"
+					actionListener="#{biddingKeeper.submit}" />
+		
+		</p:panel>
+		
+		<p:panel>
+		<p:dataTable value="#{biddingKeeper.bidKeeper}" var="biddingk" rows="10"
+			
+                         paginator="true"
+                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         rowsPerPageTemplate="5,10,15">
+		<p:column headerText="Bid Reference Number">bidRefernceNumber
+		<p:outputLabel value="#{biddingk.bidReferenceNumber}"></p:outputLabel>
+		</p:column>
+		<p:column headerText="Price">
+		<p:outputLabel value="#{biddingk.price}"></p:outputLabel>
+		</p:column>
+		<p:column headerText="Last Modified By">
+		<p:outputLabel value="#{biddingk.userId}"></p:outputLabel>
+		</p:column>
+		<p:column headerText="Basic Amount For the Bid">
+		<p:outputLabel value="#{biddingk.increaseBy}"></p:outputLabel>
+		</p:column>
+	
+		
+		</p:dataTable>	
+		</p:panel>
+<p:panel>
+<p:outputLabel  value="Enter UserId and Password"> </p:outputLabel> <br/>
+
+
+
+</p:panel>
+		</h:form>
+	</ui:define>
+</ui:composition>

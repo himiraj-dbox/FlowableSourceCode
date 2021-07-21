@@ -1,0 +1,85 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	template="template/ui.xhtml">
+
+	<ui:define name="body">
+		<script>
+			function myFunction() {
+				var x = document.getElementsByClassName("abcd");
+				x[0].innerHTML = "Hello World!";
+			}
+		</script>
+
+		<p:panel>
+
+
+
+		</p:panel>
+
+		<p:panel>
+			<ui:include src="/biidingHeader.xhtml"></ui:include>
+		</p:panel>
+		<h:form>
+		<p:panelGrid  columns="7" style="margin-left:150px; height: 66px; " cellpadding="0" cellspacing="0"> 
+
+<p:commandButton  action="actualBidding" value="Home" style="widtp: 106px; height: 60px; "></p:commandButton>
+<p:commandButton  action="aboutUs" value="About Us" style="widtp: 104px; height: 60px; "></p:commandButton>
+<p:commandButton  action="systemIntegration" disabled="true" value="System Integration" style="height: 58px; "></p:commandButton>
+<p:commandButton  action="biddinghome" value="Biddingss" style='height: 55px; font-variant: normal; font-family: "Times New Roman", Serif; font-style: oblique'/>
+<p:commandButton  action="greenWaste" disabled="true" value="Green Waste " style="height: 55px; "></p:commandButton>
+<p:commandButton  action="joinUS" disabled="true" value="Join Us" style="height: 52px; "></p:commandButton>
+<p:commandButton  action="contctUs"  value="Contact Us" style="height: 49px; "></p:commandButton>
+  
+
+</p:panelGrid>
+			<p:panel>
+			
+			<p:dataTable var="verifyUser" value="#{biddinguserverification.bidVerificationList}" rows="10"
+			 id="biddingverifyUser"
+                         paginator="true"
+                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         rowsPerPageTemplate="5,10,15">
+			
+        <p:column headerText="User Name">
+            <h:outputText value="#{verifyUser.userName}" />
+        </p:column>
+        <p:column headerText="Verify User">
+             <p:selectOneMenu  value="#{verifyUser.verfiedUser}" style="width:125px">
+            <f:selectItem itemLabel="Y" itemValue="Y" />
+            <f:selectItem itemLabel="N" itemValue="N" />
+            
+        </p:selectOneMenu>
+        </p:column>
+        <p:column headerText="Designation">
+            <h:outputText value="#{verifyUser.designation}" />
+        </p:column>
+        <p:column headerText="Office Address">
+            <h:outputText value="#{verifyUser.officeAddress}" />
+        </p:column>
+        <p:column headerText="Service Tax Number">
+            <h:outputText value="#{verifyUser.serviceTaxNumber}" />
+        </p:column>
+        <p:column headerText="Trust Score (1-10)">
+            <h:outputText value="#{verifyUser.truestScore}" />
+        </p:column>
+         <p:column headerText="Update User Status">
+             <h:commandButton value="Update User"
+						    
+						     actionListener="#{biddinguserverification.updateVerifyUser}">
+						    <f:attribute name="userName" value="#{verifyUser.userName}" />
+						    <f:attribute name="verified" value="#{verifyUser.verfiedUser}" />
+						    <f:attribute name="rating" value="#{verifyUser.truestScore}" />
+						  </h:commandButton>
+        </p:column>
+       	
+			</p:dataTable>
+			
+			</p:panel>
+				</h:form>
+	</ui:define>
+</ui:composition>

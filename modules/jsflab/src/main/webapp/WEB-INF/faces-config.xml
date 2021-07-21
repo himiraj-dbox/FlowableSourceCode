@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config
+    xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
+    version="2.2">
+	<navigation-rule>
+		<display-name>signup.xhtml</display-name>
+		<from-view-id>/signup.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>home</from-outcome>
+			<to-view-id>/home.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>adminpage.xhtml</display-name>
+		<from-view-id>/adminpage.xhtml</from-view-id>
+		<navigation-case>
+		<from-outcome>addBid</from-outcome>
+			<to-view-id>/BiddingInsertion.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>adminpage.xhtml</display-name>
+		<from-view-id>/adminpage.xhtml</from-view-id>
+		<navigation-case>
+		<from-outcome>bidkeeper</from-outcome>
+			<to-view-id>/biddingKeeper.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>biddingHome.xhtml</display-name>
+		<from-view-id>/biddingHome.xhtml</from-view-id>
+		<navigation-case>
+		<from-outcome>biddingRoom</from-outcome>
+			<to-view-id>/biddingRoom.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>biddingRoom.xhtml</display-name>
+		<from-view-id>/biddingRoom.xhtml</from-view-id>
+		<navigation-case>
+		<from-outcome>biddingHome</from-outcome>
+			<to-view-id>/biddingHome.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>adminpage.xhtml</display-name>
+		<from-view-id>/adminpage.xhtml</from-view-id>
+		<navigation-case>
+		<from-outcome>verifyUser</from-outcome>
+			<to-view-id>/verifyAnUser.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>ActualBiddingHome.xhtml</display-name>
+		<from-view-id>/ActualBiddingHome.xhtml</from-view-id>
+		<navigation-case>
+			<to-view-id>/biddingHome.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+   <from-view-id>ActualBiddingHome.xhtml</from-view-id>
+   <navigation-case>
+       <from-outcome>biddinghome</from-outcome>
+       <to-view-id>/biddingHome.xhtml</to-view-id>
+   </navigation-case>
+</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>HomePage</display-name>
+		<from-view-id>/ActualBiddingHome.xhtml</from-view-id>
+		<navigation-case>
+		<from-outcome>goToHome</from-outcome>
+			<to-view-id>/ActualBiddingHome.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		
+		<from-view-id>/biddingHome.xhtml</from-view-id>
+		<navigation-case>
+		    <from-outcome>actualBidding</from-outcome>
+			<to-view-id>ActualBiddingHome.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>biddingHome.xhtml</display-name>
+		<from-view-id>/biddingHome.xhtml</from-view-id>
+		<navigation-case>
+			<to-view-id>ActualBiddingHome.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>ActualBiddingHome.xhtml</display-name>
+		<from-view-id>ActualBiddingHome.xhtml</from-view-id>
+		<navigation-case>
+		
+		 <from-outcome>contctUs</from-outcome>
+			<to-view-id>ContactUs.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+<filter>
+    <filter-name>PrimeFaces FileUpload Filter</filter-name>
+    <filter-class>org.primefaces.webapp.filter.FileUploadFilter</filter-class>
+</filter>
+<filter-mapping>
+    <filter-name>PrimeFaces FileUpload Filter</filter-name>
+    <servlet-name>Faces Servlet</servlet-name>
+</filter-mapping>
+
+
+</faces-config>
